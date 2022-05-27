@@ -50,6 +50,12 @@ const Home = ({navigation}) => {
       name: 'Post4',
       image: require('../../images/cup.jpeg'),
     },
+    {
+      id: 5,
+      title: 'Title',
+      name: 'Post4',
+      image: require('../../images/cup.jpeg'),
+    },
   ];
 
   // Dislike Function
