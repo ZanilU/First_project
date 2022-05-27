@@ -14,9 +14,7 @@ import {SIZES} from '../../Constants';
 
 // Images
 
-
 // Packages
-
 
 const Home = ({navigation}) => {
   // Subscr
@@ -24,7 +22,7 @@ const Home = ({navigation}) => {
 
   //sdsendiw
 
-// Posts
+  // Posts
   const data = [
     {
       id: 1,
@@ -63,22 +61,11 @@ const Home = ({navigation}) => {
     let newArray = [];
     newArray = isLike.filter(dislike => dislike != id);
     setIslike(newArray);
+    console.log(newArray,"-----new------")
   };
-  
+
   return (
     <View style={{height: SIZES.hp('100%')}}>
-      <View style={styles.header}>
-        <Text style={styles.name}>Zanil</Text>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.imagecontainer}
-          onPress={() => navigation.navigate('Prof')}>
-          <Image
-            style={styles.profileimage}
-            source={require('../../images/waterfall.jpeg')}
-          />
-        </TouchableOpacity>
-      </View>
       <ScrollView style={styles.scroll}>
         {data.map(item => (
           <View style={styles.post} key={item.id}>
@@ -90,32 +77,41 @@ const Home = ({navigation}) => {
               <View style={styles.postimagecontainer}>
                 <Image style={styles.postimage} source={item.image} />
               </View>
-              <View style={styles.textcontainer}>
-                <Text style={styles.heading}>{item.title}</Text>
-                <Text style={styles.para}>
-                  aaaa sssss aaaaa aaaaaa dddd ffff sssss ddddd dddddd ddddd
-                  ddddd ddddd ddddd ...... more
-                </Text>
-              </View>
-              
             </TouchableOpacity>
             {isLike.includes(item.id) ? (
-            <TouchableOpacity
-                style={[styles.Like,{backgroundColor: 'red'},]}
-                onPress={() => {
-                  handleDislike(item.id);
-                }}>
-                <Text style={styles.liketext}>Like</Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-                style={[styles.Like,{backgroundColor: 'green'},]}
-                onPress={() => {
-                  setIslike([...isLike, item.id]);
-                }}>
-                <Text style={styles.liketext}>Like</Text>
-            </TouchableOpacity>
-          )}
+              <TouchableOpacity
+              onPress={() => {
+                handleDislike(item.id);
+              }}
+              >
+                <View
+                  style={[styles.Like, {}]}
+                 >
+                  <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={require('../../images/heart-border.png')}
+                    tintColor="black"
+                  />
+                </View>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+              onPress={() => {
+                setIslike([...isLike, item.id]);
+                console.log("like")
+              }}
+              >
+                <View
+                  style={[styles.Like, {}]}
+                 >
+                  <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={require('../../images/heart.png')}
+                    tintColor="red"
+                  />
+                </View>
+              </TouchableOpacity>
+            )}
           </View>
         ))}
       </ScrollView>
@@ -183,7 +179,7 @@ const styles = StyleSheet.create({
   Like: {
     textAlign: 'right',
     alignSelf: 'flex-end',
-    padding: 10,
-    borderRadius: 5,
+    width: 30,
+    height: 30,
   },
 });

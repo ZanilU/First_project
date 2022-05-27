@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
       },	  
     ]
 	);
-	 navigation.navigate('Home')
+	 navigation.navigate('storr')
   };
   console.log(array);
   return (

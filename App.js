@@ -6,6 +6,7 @@ import Blog from './src/includes/Home_screen/Blog'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/includes/Login_Screen/Login'
+import Stories from './src/includes/story/Stories'
 
 function App() {
   const Stack = createNativeStackNavigator();
@@ -16,6 +17,8 @@ function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Prof" component={Single_profile} />
         <Stack.Screen name="Blogg" component={Blog} />
+        <Stack.Screen name="storr" component={Stories} />
+
 
       </Stack.Navigator>
     </NavigationContainer>
